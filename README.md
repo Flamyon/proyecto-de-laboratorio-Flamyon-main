@@ -21,6 +21,7 @@ modulo1_test.py: Describe aquí el módulo de pruebas.
 
 <h4>El dataset está compuesto por 9 columnas, con la siguiente descripción:
 
+
 Columna 1: De tipo datetime, representa la fecha en la que se realizó el pedido.
   
 Columna 2: De tipo string, representa la marca del sneaker que se vendió.
