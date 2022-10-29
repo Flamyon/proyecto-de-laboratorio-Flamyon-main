@@ -8,22 +8,20 @@ def extraer_datos(fichero):
         next(lector)
         datos = list()
         for columna in lector:
-            fecha_pedido = datetime(columna[0], '%m/%d/%Y').date
+            fechaPedido = datetime.strptime(columna[0], '%m/%d/%Y').date()
             marca = columna[1]
             nombre = columna[2]
-            precio_reventa = float(
-                columna[3].replace('$', '').replace(',', '.').replace('$', ''))
-            precio_venta = float(columna[4].replace(
-                '$', '').replace(',', '.').replace('"', ''))
-            fecha_lanzamiento = datetime(columna[5], '%m/%d/%Y').date
+            precioReventa = float(columna[3])
+            precioVenta = float(columna[4])
+            fechaLanzamiento = datetime.strptime(columna[5], '%m/%d/%Y').date()
             talla = int(columna[6])
             region_compra = columna[7]
             if columna[8] == 'TRUE':
                 columna[8] = True
             else:
                 columna[8] = False
-            precio_reventa_menor = columna[8]
-            tupla = (fecha_pedido, marca, nombre, precio_reventa, precio_venta,
-                     fecha_lanzamiento, talla, region_compra, precio_reventa_menor)
+            precioReventaMenor = columna[8]
+            tupla = (fechaPedido, marca, nombre, precioReventa, precioVenta,
+                     fechaLanzamiento, talla, region_compra, precioReventaMenor)
             datos.append(tupla)
     return datos
