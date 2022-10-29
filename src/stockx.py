@@ -12,8 +12,9 @@ def extraer_datos(fichero):
             marca = columna[1]
             nombre = columna[2]
             precio_reventa = float(
-                columna[3].replace('$', '').replace(',', '.'))
-            precio_venta = float(columna[4].replace('$', '').replace(',', '.'))
+                columna[3].replace('$', '').replace(',', '.').replace('$', ''))
+            precio_venta = float(columna[4].replace(
+                '$', '').replace(',', '.').replace('"', ''))
             fecha_lanzamiento = datetime(columna[5], '%m/%d/%Y').date
             talla = int(columna[6])
             region_compra = columna[7]
