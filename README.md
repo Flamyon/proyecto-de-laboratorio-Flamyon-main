@@ -40,21 +40,4 @@ Columna 8: De tipo string, representa la región en la que vive el comprador.
   
 Columna 9: De tipo bool, true siempre que la venta se haya hecho a un precio menor que en la tienda oficial, mientras que si el precio es igual o mayor será false.
   
-Tipos implementados
-Descrbe aquí la o las namedtuple que defines en tu proyecto.
-
 <h2>Funciones implementadas
-
-Añade aquí descripciones genéricas de las funciones, que luego debes acompañar con comentarios de tipo documentación en el código
-
-<modulo 1>
-<funcion 1>: Descripción de la función 1.
-<funcion 2>: Descripción de la función 2.
-  
-<test modulo 1>
-<test funcion 1>: Descripción de las pruebas realizadas a la función 1.
-<test funcion 2>: Descripción de las pruebas realizadas a la función 2.
-  
-<modulo 2>
-<funcion 1>: Descripción de la función 1.
-<funcion 2>: Descripción de la función 2.
