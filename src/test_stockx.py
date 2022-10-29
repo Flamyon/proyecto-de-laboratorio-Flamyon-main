@@ -1,5 +1,9 @@
 from stockx import *
 
-if __name__ == "__main__":
-    datos = [extraer_datos()]
-    print(datos)
+
+def test_extraer_datos():
+    print('Numero total de registros: ', len(datos))
+
+
+datos = extraer_datos('data/dataset1.csv')
+test_extraer_datos()
