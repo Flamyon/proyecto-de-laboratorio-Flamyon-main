@@ -12,5 +12,11 @@ def test_extraer_datos():
     print('----------------------------------------------------------------------------')
 
 
+def test_tallas_distintas():
+    print('Numero total de tallas: ', tallas_distintas(datos), '\n')
+    print('----------------------------------------------------------------------------')
+
+
 datos = extraer_datos('data/dataset1.csv')
 test_extraer_datos()
+test_tallas_distintas()

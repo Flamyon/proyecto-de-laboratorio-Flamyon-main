@@ -1,9 +1,10 @@
 from datetime import date, datetime
 import csv
 from collections import namedtuple
+from sqlite3 import DateFromTicks
 
-Stock = namedtuple('Stock', ['FechaPedido', 'Marca', 'Nombre', 'PrecioReventa',
-                   'PrecioVenta', 'FechaLanzamiento', 'Talla', 'Region', 'PrecioReventaMenor'])
+Stock = namedtuple(
+    'Stock', 'FechaPedido,Marca,Nombre,PrecioReventa,PrecioVenta,FechaLanzamiento,Talla,Region,PrecioReventaMenor')
 
 
 def extraer_datos(fichero):
@@ -25,3 +26,10 @@ def extraer_datos(fichero):
                           FechaLanzamiento, Talla, Region, PrecioReventaMenor)
             datos.append(tupla)
         return datos
+
+
+def tallas_distintas(datos):
+    tallas = set()
+    for i in datos:
+        tallas.add(i.Talla)
+    return tallas
