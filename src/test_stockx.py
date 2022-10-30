@@ -1,9 +1,15 @@
+from tkinter import S
 from stockx import *
 
 
 def test_extraer_datos():
-    print('Numero total de registros: ', len(datos))
-    print('Los datos de la primera venta fueron : ', datos[0])
+    print('Numero total de registros: ', len(datos), '\n')
+    print('----------------------------------------------------------------------------')
+    print('\nLos datos de los 3 primeros registros leídos: ', datos[:3], '\n')
+    print('----------------------------------------------------------------------------')
+    print('\nY los 3 últimos registros leídos de venta fueron',
+          datos[-3:], '\n')
+    print('----------------------------------------------------------------------------')
 
 
 datos = extraer_datos('data/dataset1.csv')

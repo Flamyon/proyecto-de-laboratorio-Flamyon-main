@@ -1,5 +1,9 @@
 from datetime import date, datetime
 import csv
+from collections import namedtuple
+
+Stock = namedtuple('Stock', ['FechaPedido', 'Marca', 'Nombre', 'PrecioReventa',
+                   'PrecioVenta', 'FechaLanzamiento', 'Talla', 'Region', 'PrecioReventaMenor'])
 
 
 def extraer_datos(fichero):
@@ -8,20 +12,16 @@ def extraer_datos(fichero):
         next(lector)
         datos = list()
         for columna in lector:
-            fechaPedido = datetime.strptime(columna[0], '%m/%d/%Y').date()
-            marca = columna[1]
-            nombre = columna[2]
-            precioReventa = float(columna[3])
-            precioVenta = float(columna[4])
-            fechaLanzamiento = datetime.strptime(columna[5], '%m/%d/%Y').date()
-            talla = int(columna[6])
-            region_compra = columna[7]
-            if columna[8] == 'TRUE':
-                columna[8] = True
-            else:
-                columna[8] = False
-            precioReventaMenor = columna[8]
-            tupla = (fechaPedido, marca, nombre, precioReventa, precioVenta,
-                     fechaLanzamiento, talla, region_compra, precioReventaMenor)
+            FechaPedido = datetime.strptime(columna[0], '%m/%d/%Y').date()
+            Marca = columna[1]
+            Nombre = columna[2]
+            PrecioReventa = float(columna[3])
+            PrecioVenta = float(columna[4])
+            FechaLanzamiento = datetime.strptime(columna[5], '%m/%d/%Y').date()
+            Talla = int(columna[6])
+            Region = columna[7]
+            PrecioReventaMenor = columna[8] == 'TRUE'
+            tupla = Stock(FechaPedido, Marca, Nombre, PrecioReventa, PrecioVenta,
+                          FechaLanzamiento, Talla, Region, PrecioReventaMenor)
             datos.append(tupla)
-    return datos
+        return datos
