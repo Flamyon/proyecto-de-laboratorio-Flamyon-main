@@ -12,18 +12,14 @@ def extraer_datos(fichero):
         lector = csv.reader(f, delimiter=',')
         next(lector)
         datos = list()
-        for columna in lector:
-            FechaPedido = datetime.strptime(columna[0], '%m/%d/%Y').date()
-            Marca = columna[1]
-            Nombre = columna[2]
-            PrecioReventa = float(columna[3])
-            PrecioVenta = float(columna[4])
-            FechaLanzamiento = datetime.strptime(columna[5], '%m/%d/%Y').date()
-            Talla = int(columna[6])
-            Region = columna[7]
-            PrecioReventaMenor = columna[8] == 'TRUE'
-            tupla = Stock(FechaPedido, Marca, Nombre, PrecioReventa, PrecioVenta,
-                          FechaLanzamiento, Talla, Region, PrecioReventaMenor)
+        for c in lector:
+            c[0] = datetime.strptime(c[0], '%m/%d/%Y').date()
+            c[3] = float(c[3])
+            c[4] = float(c[4])
+            c[5] = datetime.strptime(c[5], '%m/%d/%Y').date()
+            c[6] = int(c[6])
+            c[8] = c[8] == 'TRUE'
+            tupla = Stock(c[0], c[1], c[2], c[3], c[4], c[5], c[6], c[7], c[8])
             datos.append(tupla)
         return datos
 
@@ -33,3 +29,10 @@ def tallas_distintas(datos):
     for i in datos:
         tallas.add(i.Talla)
     return len(tallas)
+
+
+def media_PrecioReventa(datos):
+    PreciosReventa = list()
+    for i in datos:
+        PreciosReventa.append(i.PrecioReventa)
+    return (sum(PreciosReventa)/len(PreciosReventa))

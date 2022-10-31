@@ -13,10 +13,18 @@ def test_extraer_datos():
 
 
 def test_tallas_distintas():
-    print('\nNumero total de tallas distintas: ', tallas_distintas(datos), '\n')
+    print('\nEl numero total de tallas distintas: ',
+          tallas_distintas(datos), '\n')
+    print('----------------------------------------------------------------------------')
+
+
+def test_media_PrecioReventa():
+    print('\nLa media del precio de reventa es: ',
+          media_PrecioReventa(datos), '\n')
     print('----------------------------------------------------------------------------')
 
 
 datos = extraer_datos('data/dataset1.csv')
 test_extraer_datos()
 test_tallas_distintas()
+test_media_PrecioReventa()
